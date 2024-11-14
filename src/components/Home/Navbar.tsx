@@ -14,6 +14,7 @@ function Navbar() {
   const { isLoaded, isSignedIn, user } = useUser();
   const { getToken } = useAuth();
 
+
   useEffect(() => {
     (async()=>{
       if (!user?.unsafeMetadata || Object.keys(user?.unsafeMetadata).length === 0) {
@@ -23,6 +24,8 @@ function Navbar() {
          }
         })
      }
+     const token  = await getToken(user)
+     console.log(token)
     })()
   }, [user]);
 

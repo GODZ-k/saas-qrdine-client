@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Providers from "./providers/Providers";
+import NextTopLoader from 'nextjs-toploader';
 
 import Outlet from "./Outlet";
+import Loading from "./loading";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,6 +35,11 @@ export default function RootLayout({
       >
         <Providers>
           <Outlet>
+          <NextTopLoader 
+          color="red"
+          easing="ease"
+          speed={400}
+          />
           {children}
           </Outlet>
         </Providers>
